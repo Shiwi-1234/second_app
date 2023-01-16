@@ -1,20 +1,38 @@
 class ArticlesController < ApplicationController
-require 'httparty'
+require 'httparty'#require 'rest-client'
 
-  def index
-    @articles = Article.all
-  end
+def gets_articles
+  url = "http://localhost:3001/todolists"
+  response = HTTParty.get(url)
+  data = JSON.parse(response.body)
+  data.each do |item|
+    Article.create(title:item["name"])
+  end 
+end
 
+def edit 
+  @article = Article.find(params[:id])
+end
   
-  def create
-    response = HTTParty.get("http://localhost:3000/todolists")
-    data = JSON(response.body)
-    data.each do |item|
-      Article.create(title: item["name"], description: item["email"])
-     end 
-  end
+def index
+  @articles = Article.all
+end
 
-  def new
+def update
+  @article = Article.find(params[:id])
+  if @article.update(articles_params)
+    redirect_to articles_path
+  else
+    render 'edit'
   end
+end
+
+private
+
+def articles_params
+   params.require(:article).permit(:title, :description, :date, :day )
+end
+
+
 
 end
