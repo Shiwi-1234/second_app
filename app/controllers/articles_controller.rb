@@ -1,22 +1,21 @@
 class ArticlesController < ApplicationController
 require 'httparty'#require 'rest-client'
 
-def gets_articles
-  url = "http://localhost:3001/todolists"
-  response = HTTParty.get(url)
-  data = JSON.parse(response.body)
-  data.each do |item|
-    Article.create(title:item["name"])
-  end 
-end
 
 def edit 
   @article = Article.find(params[:id])
 end
   
 def index
-  @articles = Article.all
-end
+   url = "http://localhost:3001/todolists"
+   response = HTTParty.get(url)
+  @data = JSON.parse(response.body)
+ # render json: @data
+
+ end
+
+
+
 
 def update
   @article = Article.find(params[:id])
@@ -31,6 +30,18 @@ private
 
 def articles_params
    params.require(:article).permit(:title, :description, :date, :day )
+end
+
+
+def gets_articles
+  url = "http://localhost:3001/todolists"
+  response = HTTParty.get(url)
+  data = JSON.parse(response.body)
+  data.each do |item|
+    Article.create(title:item["name"])
+  end 
+  
+  render json: @data
 end
 
 
