@@ -4,11 +4,19 @@
   <tr><br>
     <th>Title</th>
     <th>Description</th>
+    <th>Date</th>
+    <th>Day</th>
+
   </tr>
    <%  @data.each do |article| %>
     <tr>
-      <td><%= article %></td>   
-    </tr>
+      <td><%= article["title"] %></td> 
+      
+      <td><%= article["date"] %></td>
+      <td><%= article["day"] %></td>
+       
+       <td><%= link_to 'show', articles_create_item_path(article)  %></td>
+       <%= link_to "User Profile", user_path(@user, sort: 'name', filter: 'active') %>
   <% end %>
 </table>
 

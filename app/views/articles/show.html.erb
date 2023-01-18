@@ -1,20 +1,17 @@
-<h><%= @article.title %></h1>
-
- 
-<p>
-	<%= @article.description %>
-</p>
+<h1><%= @data['title'] %></h1>
 
 <p>
-<strong>Date :</strong>
-<%= @article.date %>
+	<strong>Title :</strong>
+   	<%= @data['title'] %>
+</p><p>
+	<strong>Description :</strong>
+   	<%= @data['description'] %>
 </p>
-
 <p>
-<strong>Day	:</strong>
-<%= @article.day %>
+	<strong>Date :</strong>
+	<%= @data['date'] %>
 </p>
-
-
-
- <%= link_to 'back', articles_path %>
+<p>
+	<strong>Day	:</strong>
+	<%= @data['day'] %>
+</p>
