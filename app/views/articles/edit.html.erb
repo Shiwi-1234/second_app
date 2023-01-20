@@ -1,4 +1,30 @@
-<h1 style="color: darkblue;">Welcome To Blog Application</h>
-<h3 style="color: orangered;">Publish your passions, your way </h3>
+<%= form_with model: @url do |form| %>
 
-<%= link_to'Create Your Own Blog',controller: 'articles' %>
+  	<div>
+  		<%= form.label :title %><br>
+		<%= form.text_field :form['title'] %>
+  	</div>
+
+  	<div>
+  		<%= form.label :Decription %><br>
+		<%= form.text_field :form['description'] %>
+  	</div>
+
+	<div>
+  		<%= form.label :Date %><br>
+		<%= form.text_field :form['date'] %>
+  	</div>
+
+	<div>
+  		<%= form.label :Day %><br>
+		<%= form.text_field :form['day'] %>
+  	</div><br>
+
+	<div>
+  		<%= form.submit %><br>
+  	</div>
+
+
+<% end %>
+
+

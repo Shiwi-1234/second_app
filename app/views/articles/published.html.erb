@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Day</th>
+    </tr>
+   
+   <%  @articles.each do |article| %>
+    <tr>
+      <div class="badge bg-primary text-wrap" style="width: 6rem;">
+      <td><%= article["title"] %></td> 
+      <td><%= article["description"] %></td> 
+      <td><%= article["date"] %></td>
+      <td><%= article["day"] %></td>
+    <% end %>
+    </div>
+  <tr>
+  </table>
