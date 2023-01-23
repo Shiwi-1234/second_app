@@ -1,29 +1,32 @@
-<center><h1 style="color:blue;"><b> Lists of Articles</b></h1></center>
+<center><h1 style="color:darkblue;"><b> Lists of Articles</b></h1></center>
 <p>
   <%= flash[:notice] %>
 </p>
 
 <center>
-<table>
-  <tr><br>
-    <th>Title </th>
-    <th>Date</th>
-    <th>Day</th>
-  </tr>
-   <%  @data.each do |article| %>
+   <table class="table align-middle">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Day</th>
+    </tr>
+  </thead>
+  <tbody>
+     <%  @data.each do |article| %>
     <tr>
       <td><%= article["title"] %></td> 
       <td><%= article["date"] %></td>
       <td><%= article["day"] %></td>
-      <td><%= link_to 'show', article_path(article["id"]) %></td>
-      <td><%= link_to 'update',update_article_articles_path  %></td>
-      <td><%= link_to 'Published Articles', published_articles_path %></td>
-      <td><%= link_to 'update',edit_article_path(article["id"])  %></td>
-      <td></td>
+      <td><%= link_to 'show', article_path(article["id"]),class: "btn btn-outline-primary" %></td>
+      <td><%= link_to 'update',update_article_articles_path,class:"btn btn-outline-success" %></td>
+      <td><%= link_to 'update',edit_article_path(article["id"]),class: "btn btn-outline-info" %></td>
+     </tr>
   <% end %>
 </table></center>
+ <td><%= link_to 'Published Articles',published_articles_path,class: "btn btn-outline-info" %></td>
 
  
-
 
 

@@ -1,6 +1,6 @@
-<%= form_with model: @url do |form| %>
+<%= form_with url: article_path(@data), method: "put" do |form| %>
 
-  	<div>
+ 	<div>
   		<%= form.label :title %><br>
 		<%= form.text_field :form['title'] %>
   	</div>
@@ -25,6 +25,9 @@
   	</div>
 
 
+
 <% end %>
+
+
 
 

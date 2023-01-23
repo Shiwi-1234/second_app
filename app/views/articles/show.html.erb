@@ -1,13 +1,19 @@
-<center><h1 style="color: blue;"><%= @data['title'] %></h1></center>
+<center><h1 style="color: blue;"></h1></center>
+
 <p>
 	<strong>Description :</strong>
-   	<%= @data['description'] %>
+   	<%= @response['title'] %>
+
+</p>
+<p>
+	<strong>Description :</strong>
+   	<%= @response['description'] %>
 </p>
 <p>
 	<strong>Date :</strong>
-	<%= @data['date'] %>
+	<%= @response['date'] %>
 </p>
 <p>
 	<strong>Day	:</strong>
-	<%= @data['day'] %>
+	<%=@response['day'] %>
 </p>

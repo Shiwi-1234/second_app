@@ -12,40 +12,45 @@ end
 
 def show
   url = "http://localhost:3001/articles/" + params[:id]
-  response = HTTParty.get(url)
+  @response = HTTParty.get(url)
   
 end
 
 def edit
  url = "http://localhost:3001/articles/" + params[:id]
- response = HTTParty.get(url)
- @data = JSON.parse(response.body)
-end
+ @response = HTTParty.get(url)
+ @data = JSON.parse(@response.body)
 
-def update_article
-  options = { headers: {"Accept"=>"application/json", "Content-Type"=>"application/json"}, body: { "published" => true}.to_json }
- 
-  url = "http://localhost:3001/articles/10" 
-  response = HTTParty.patch(url , options)
-  status_code = response.code
-  @data = response.parsed_response
-  if status_code == 200
-    flash[:notice] = 'Your Article was Update Successfully!'
-  end 
 end
 
 def update
-  options = { headers: {"Accept"=>"application/json", "Content-Type"=>"application/json"}, body: { "published" => true}
-  .to_json }
-  #url = "http://localhost:3001/articles/" 
-  response = HTTParty.patch(@url , options)
-  status_code = response.code
-  @data = response.parsed_response
-  if status_code == 200
-    flash[:notice] = 'Your Article was Update Successfully!'
-  end 
-  redirect_to  update_article_articles_path
+  
+  
+  url = "http://api.example.com/articles/" + params[:id]
+  options = { headers: { "Accept" => "application/json", "Content-Type" => "application/json", }, body: data.to_json }
+  response = HTTParty.patch(url, options)
+  @data =  JSON.parse(response.body)
+  if response.code == 200
+    if @data.update
+    redirect_to articles_path
+    flash[:notice] = 'API data updated successfully'
+  else
+    flash[:alert] = 'Error updating API data'
+  end
+ end 
 end
+
+# def update_article
+#   options = { headers: {"Accept"=>"application/json", "Content-Type"=>"application/json"}, body: { "published" => true}.to_json }
+ 
+#   url = "http://localhost:3001/articles/10" 
+#   response = HTTParty.patch(url , options)
+#   status_code = response.code
+#   @data = response.parsed_response
+#   if status_code == 200
+#     flash[:notice] = 'Your Article was Update Successfully!'
+#   end 
+# end
 
 def create_item
   options = { headers: {"Accept"=>"application/json", "Content-Type"=>"application/json"}, 
