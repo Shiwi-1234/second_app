@@ -1,23 +1,31 @@
-<%= form_with url: article_path(@data), method: "put" do |form| %>
-
+<div class="d-flex align-items-center justify-content-center" style="height: 90vh">
+<div class="card" style="width: 20rem;" >
+<div class="card border-dark shadow-sm">
+<div class="card-body">
+<h2 class="card-title">Edit Article</h2>
+<%= form_with url: article_path(@data['id']), method: "put" do |form| %>
  	<div>
   		<%= form.label :title %><br>
-		<%= form.text_field :form['title'] %>
+		 <%= form.text_field :title, value: @data["title"] %>
   	</div>
 
   	<div>
   		<%= form.label :Decription %><br>
-		<%= form.text_field :form['description'] %>
-  	</div>
+		 <%= form.text_field :description, value: @data["description"] %>
 
 	<div>
   		<%= form.label :Date %><br>
-		<%= form.text_field :form['date'] %>
+		 <%= form.text_field :date, value: @data["date"] %>
   	</div>
 
 	<div>
   		<%= form.label :Day %><br>
-		<%= form.text_field :form['day'] %>
+		 <%= form.text_field :day, value: @data["day"] %>
+  	</div>
+
+  	<div>
+  		<%= form.label :Published %><br>
+		 <%= form.text_field :published, value: @data["published"] %>
   	</div><br>
 
 	<div>
@@ -25,9 +33,11 @@
   	</div>
 
 
-
 <% end %>
-
+</div>
+</div>
+</div>
+</div>
 
 
 

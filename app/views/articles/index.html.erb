@@ -2,7 +2,6 @@
 <p>
   <%= flash[:notice] %>
 </p>
-
 <center>
    <table class="table align-middle">
   <table class="table table-striped">
@@ -20,12 +19,12 @@
       <td><%= article["date"] %></td>
       <td><%= article["day"] %></td>
       <td><%= link_to 'show', article_path(article["id"]),class: "btn btn-outline-primary" %></td>
-      <td><%= link_to 'update',update_article_articles_path,class:"btn btn-outline-success" %></td>
       <td><%= link_to 'update',edit_article_path(article["id"]),class: "btn btn-outline-info" %></td>
      </tr>
   <% end %>
 </table></center>
- <td><%= link_to 'Published Articles',published_articles_path,class: "btn btn-outline-info" %></td>
+ 
+<td><%= link_to 'Published Articles',published_articles_path,class: "btn btn-info" %></td>
 
  
 
