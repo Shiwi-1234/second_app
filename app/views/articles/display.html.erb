@@ -1,7 +1,21 @@
+<style>
+  body {
+    background-image: url('https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: 100% 1300%;
+  }
+</style>
+
+<div style="float: right;">
+  <%= button_to'Logout', destroy_admin_session_path ,method: :delete %> 
+</div> 
+
+<div style="float: right;">
+  <button type="button" class="btn btn-light"><%= link_to'Articles ',controller: 'articles' %></button>
+</div>
+
+
 <div class="align-self-center">
   <h1 style="color: darkblue;"><b>Welcome To Admin Application</b></h1>
-<h3 style="color: orangered;">Publish your passions, your way </h3>
-<%= link_to'Create Your Own Blog',controller: 'articles' %><br>
-<%= button_to'Logout', destroy_admin_session_path ,method: :delete %>
 </div>
 

@@ -1,25 +1,22 @@
 class ArticlesController < ApplicationController
 require 'httparty'#require 'rest-client'
-include HTTParty
-  base_uri "http://localhost:3001/"
 
 def index
   url = "http://localhost:3001/articles"
   response = HTTParty.get(url)
   @data = JSON.parse(response.body)
+  
 end
 
 def show
   url = "http://localhost:3001/articles/" + params[:id]
   @response = HTTParty.get(url)
-  
 end
 
 def edit
  url = "http://localhost:3001/articles/" + params[:id]
  @response = HTTParty.get(url)
  @data = JSON.parse(@response.body)
-
 end
 
 def update

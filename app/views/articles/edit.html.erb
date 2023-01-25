@@ -1,3 +1,8 @@
+<style>
+  body {    
+   	background-color: lightsteelblue;
+  }
+</style>
 <div class="d-flex align-items-center justify-content-center" style="height: 90vh">
 <div class="card" style="width: 20rem;" >
 <div class="card border-dark shadow-sm">
@@ -6,33 +11,31 @@
 <%= form_with url: article_path(@data['id']), method: "put" do |form| %>
  	<div>
   		<%= form.label :title %><br>
-		 <%= form.text_field :title, value: @data["title"] %>
+		<%= form.text_field :title, value: @data["title"] %>
   	</div>
 
   	<div>
   		<%= form.label :Decription %><br>
-		 <%= form.text_field :description, value: @data["description"] %>
+		<%= form.text_field :description, value: @data["description"] %>
 
 	<div>
   		<%= form.label :Date %><br>
-		 <%= form.text_field :date, value: @data["date"] %>
+		<%= form.text_field :date, value: @data["date"] %>
   	</div>
 
 	<div>
   		<%= form.label :Day %><br>
-		 <%= form.text_field :day, value: @data["day"] %>
+		<%= form.text_field :day, value: @data["day"] %>
   	</div>
 
   	<div>
   		<%= form.label :Published %><br>
-		 <%= form.text_field :published, value: @data["published"] %>
+		<%= form.text_field :published, value: @data["published"] %>
   	</div><br>
 
 	<div>
   		<%= form.submit %><br>
   	</div>
-
-
 <% end %>
 </div>
 </div>
