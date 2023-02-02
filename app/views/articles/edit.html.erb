@@ -3,40 +3,44 @@
    	background-color: lightsteelblue;
   }
 </style>
-<div class="d-flex align-items-center justify-content-center" style="height: 90vh">
-<div class="card" style="width: 20rem;" >
-<div class="card border-dark shadow-sm">
-<div class="card-body">
-<h2 class="card-title">Edit Article</h2>
-<%= form_with url: article_path(@data['id']), method: "put" do |form| %>
- 	<div>
-  		<%= form.label :title %><br>
-		<%= form.text_field :title, value: @data["title"] %>
-  	</div>
 
-  	<div>
-  		<%= form.label :Decription %><br>
+<div class="d-flex align-items-center justify-content-center" style="height: 90vh">
+	<div class="card" style="width: 20rem;" >
+		<div class="card border-dark shadow-sm">
+			<div class="card-body">
+				<h2 class="card-title">Edit Article</h2>
+<%= form_with url: article_path(@data["id"]), method: "put" do |form| %>
+ 	<div>
+  	<%= form.label :title %><br>
+		<%= form.text_field :title, value: @data["title"] %>
+  </div>
+
+  <div>
+  	<%= form.label :Decription %><br>
 		<%= form.text_field :description, value: @data["description"] %>
 
 	<div>
-  		<%= form.label :Date %><br>
-		<%= form.text_field :date, value: @data["date"] %>
-  	</div>
+  	<%= form.label :Date %><br>
+		<%= form.text_field :date, value: @data["Date"] %>
+  </div>
 
 	<div>
-  		<%= form.label :Day %><br>
-		<%= form.text_field :day, value: @data["day"] %>
-  	</div>
+  	<%= form.label :Day %><br>
+		<%= form.text_field :day, value: @data["Day"] %>
+  </div>
 
-  	<div>
-  		<%= form.label :Published %><br>
+  <div>
+  	<%= form.label :Published %><br>
 		<%= form.text_field :published, value: @data["published"] %>
-  	</div><br>
+  </div><br>
 
 	<div>
   		<%= form.submit %><br>
   	</div>
-<% end %>
+			<% end %>
+	<div style="float: right;">
+  	<button type="button" ><%= link_to'Back ',controller: 'articles' %></button>
+	</div>
 </div>
 </div>
 </div>

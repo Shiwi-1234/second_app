@@ -1,6 +1,6 @@
 <h1 style="color: darkblue"><b> <%= @response['title'] %></b></h1><br>
 <style >body {background-color: lightsalmon;}</style>
-<%= image_tag @response.image %>
+
 
 <p>
 	<strong>Description :</strong>
@@ -18,3 +18,5 @@
 	<strong>Published</strong>
 	<%=@response['published'] %>
 </p>
+  <button type="button" ><%= link_to'Back ',controller: 'articles' %></button>
+

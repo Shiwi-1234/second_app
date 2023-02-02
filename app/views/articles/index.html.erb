@@ -15,15 +15,13 @@
   <tbody>
      <%  @data.each do |article| %>
     <tr>
-      <td><%= article["title"] %></td> 
-      <td><%= article["date"] %></td>
-      <td><%= article["day"] %></td>
+      <td class="text-info"><%= article["title"] %></td> 
       <td><%= link_to 'show', article_path(article["id"]),class: "btn btn-outline-primary" %></td>
       <td><%= link_to 'update',edit_article_path(article["id"]),class: "btn btn-outline-info" %></td>
      </tr>
   <% end %>
 </table></center>
- 
+ <button><%= link_to "Back", display_articles_path %></button>
 <td><%= link_to 'Published Articles',published_articles_path,class: "btn btn-info" %></td>
 
  

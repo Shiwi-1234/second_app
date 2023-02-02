@@ -7,7 +7,7 @@
       <th scope="col">Day</th>
     </tr>
    
-   <%  @articles.each do |article| %>
+   <%  @data.each do |article| %>
     <tr>
       <div class="badge bg-primary text-wrap" style="width: 6rem;">
       <td><%= article["title"] %></td> 
@@ -18,3 +18,4 @@
     </div>
   <tr>
   </table>
+  <button type="button" ><%= link_to'Back ',controller: 'articles' %></button>
